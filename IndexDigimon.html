@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digimon Catálogo</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/miEstilo.css">
+</head>
+<body>
+    <div class="container">
+
+    <!-- TARJETAS -->
+    <div id="catalogoProductos" class="productos row g-4"></div>
+
+    <!-- BOTONES (FUERA del contenedor) -->
+    <div class="d-flex justify-content-between mt-4">
+        <button id="btnAnterior" class="btn btn-secondary">Anterior</button>
+        <button id="btnSiguiente" class="btn btn-primary">Siguiente</button>
+    </div>
+
+    <!-- Botón Flotante para ver el Carrito -->
+    <button class="btn btn-dark position-fixed bottom-0 end-0 m-4 rounded-circle" 
+            style="width: 60px; height: 60px; z-index: 1000;" 
+            data-bs-toggle="modal" data-bs-target="#modalCarrito" id="btnVerCarrito">
+            🛒
+    </button>
+
+    </div>
+
+    <!-- Modal de Detalle del Digimon -->
+    <div class="modal fade" id="miModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="tituloModal" class="modal-title">Detalle del Digimon</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body text-center">
+                        <img id="imagenModal" class="img-fluid w-100 rounded" />
+                    </div>
+                    <p id="descripcionModal"></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>ID:</strong> <span id="idModal"></span></p>
+                            <p><strong>Nivel:</strong> <span id="nivelModal"></span></p>
+                            <p><strong>Tipo:</strong> <span id="tipoModal"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Atributo:</strong> <span id="atributoModal"></span></p>
+                            <p><strong>Campo:</strong> <span id="campoModal"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal del Carrito de Digimons -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mi Equipo Digimon (Carrito)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="listaCarrito" class="list-group">
+                        <!-- Aquí se cargarán los Digimons -->
+                    </ul>
+                    <div id="carritoVacio" class="text-center py-3 d-none">
+                        <p>Tu carrito está vacío.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="vaciarCarrito()">Vaciar todo</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/digimon.js"></script>
+</body>
+</html>
